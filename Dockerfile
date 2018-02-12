@@ -1,6 +1,7 @@
 FROM cjkas/maven-oracle-jdk
 
 RUN useradd -m -g docker docker && echo "docker:docker" | chpasswd && adduser docker sudo
+RUN useradd -u 1001 mysql_user
 
 RUN sed -i.bkp -e \
       's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' \
